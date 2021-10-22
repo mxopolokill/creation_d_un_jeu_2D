@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/pageacceuil.css">
+    <title>Casse Briques Matter JS </title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>nom</th>
+            <th>score</th>
+            <th>temps</th>
+        </tr>
+        <tr id="tab01">
+          <td></td>
+        </tr>
+    </table>
+
+    <div class="game">
+        <div class="game__screen gameover">
+
+            <canvas width="600" height="300"></canvas>
+
+            <div class="button">
+                        <input class="namePlayer" type="text" >Ton Nom!</input>
+                  
+                        <a id="buttonPlay" href="./game.html"> Play </a>
+            </div>
+        </div>
+    </div>
+
+<script type="module" src="js/actions/storageScore.js"></script>
+<script src="./node_modules/matter-js/build/matter.js"></script>
+
+
+</body>
+
+</html>
