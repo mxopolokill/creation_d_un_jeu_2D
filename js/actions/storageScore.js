@@ -1,9 +1,10 @@
 
+
 //variables nom/score
 export let namePlayer01;
 let varNamePlayer = document.querySelector(".namePlayer");//récupération élément html input pour le nom
 let buttonPlay = document.querySelector("#buttonPlay");//récupération élément html a pour évent click play
-const getScoreboard = JSON.parse(localStorage.getItem("scoreboard")) || [];
+let getScoreboard = JSON.parse(localStorage.getItem("Scores"));
 
 //récupération valeur nom joueur après event click play
 varNamePlayer.addEventListener("keyup",(e)=>{
@@ -11,21 +12,58 @@ varNamePlayer.addEventListener("keyup",(e)=>{
 localStorage.setItem("nom", namePlayer01);
 });
 
+/*
+    fetch(url, {
+      mode: 'cors'
+    })
+      .then((response) =>
+      {console.log(response);  
+      response.json()})
+     
+        .then((data) => {
 
+          console.log(data);
 
-getScoreboard.sort(function(a,b) {
-    return a.timer - b.timer;
-});
-getScoreboard.sort(function(a,b) {
-    return b.score - a.score;
-});
-
-
-
+*/
 let textName = document.querySelector("#tab01");
-for(let i=0;i<=11;i++) {
-textName.insertAdjacentHTML('beforebegin', '<tr><td class="tabname">' +getScoreboard[i].nom +'</td><td class="tabname">' +getScoreboard[i].score +'</td><td class="tabname">' +getScoreboard[i].timer +'</td></tr>');
-}
+
+let UrlAPI = `http://127.0.0.1:8000/api/Classement?TOKEN=T2RE132201465140261546546548464`;
+
+let aPromise = fetch(UrlAPI);
+
+aPromise
+
+.then(function(response){
+  console.log(response);
+  if (!response){
+    throw new Error("HTTP error, status =" + response.status);
+  }
+  var myJSON_promise = response.json();
+  return myJSON_promise;
+})
+
+.then(function (myJSON){
+  myJSON.forEach((user) =>{
+
+    textName.innerHTML+= 
+    `<tr>
+        <td>${user.pseudo} </td>
+        <td> ${user.score}</td>
+    </tr>`;
+
+
+  }).catch(function(error){
+    console.log("ERROR:", error);
+  });
+
+});
+
+
+//for(let i=0;i<=11;i++) {
+
+
+
+
 
 
 
