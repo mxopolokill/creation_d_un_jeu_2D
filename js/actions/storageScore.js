@@ -1,14 +1,15 @@
 
-
 //variables nom/score
 export let namePlayer01;
+
+
 let varNamePlayer = document.querySelector(".namePlayer");//récupération élément html input pour le nom
 let buttonPlay = document.querySelector("#buttonPlay");//récupération élément html a pour évent click play
 let getScoreboard = JSON.parse(localStorage.getItem("Scores"));
 
 //récupération valeur nom joueur après event click play
 varNamePlayer.addEventListener("keyup",(e)=>{
-    namePlayer01= varNamePlayer.value;
+    namePlayer01 = varNamePlayer.value;
 localStorage.setItem("nom", namePlayer01);
 });
 
@@ -25,11 +26,26 @@ localStorage.setItem("nom", namePlayer01);
           console.log(data);
 
 */
+
+
+
+
+
+
+   ////////////////////////////////////////////////////////////////////////////
+  //                        récuperation Classement BDD    "GET"            //
+ //                                                                        //
+////////////////////////////////////////////////////////////////////////////
+
+
 let textName = document.querySelector("#tab01");
+
 
 let UrlAPI = `http://127.0.0.1:8000/api/Classement?TOKEN=T2RE132201465140261546546548464`;
 
+
 let aPromise = fetch(UrlAPI);
+
 
 aPromise
 
@@ -52,14 +68,12 @@ aPromise
     </tr>`;
 
 
-  }).catch(function(error){
-    console.log("ERROR:", error);
-  });
+  })
+ 
 
 });
 
 
-//for(let i=0;i<=11;i++) {
 
 
 
@@ -67,7 +81,12 @@ aPromise
 
 
 
-//si scorea > scoreb alors noma avant nomb
+
+
+
+
+
+
 
 
 

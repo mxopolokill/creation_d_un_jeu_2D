@@ -9,6 +9,10 @@ import {drawScore} from "../js/actions/score.js";
 import {drawLives} from "../js/actions/lives.js";
 import { timer } from "./actions/timer.js";
 
+import {score} from "./actions/score.js";
+
+
+
 
 
 function main(){
@@ -23,5 +27,25 @@ function main(){
   initShield();
   drawScore();
   drawLives();
+
+
+  let data = {
+    "pseudo": "JAIMEPASTONPSEUDO",
+    "score": score 
+  }
+  console.log(data);
+
+  fetch('http://127.0.0.1:8000/api/add_Scores?TOKEN=T2RE132201465140261546546548464', {
+  method: "POST",
+
+  body: JSON.stringify(data),
+  
+  headers: {"Content-type": "application/json",
+             "Accept": "application/json"
 }
+
+}).then(response => response.json())
+console.log(data); 
+}
+
 main();
