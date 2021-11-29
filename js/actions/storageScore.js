@@ -65,6 +65,7 @@ aPromise
     `<tr>
         <td>${user.pseudo} </td>
         <td> ${user.score}</td>
+        <td> ${user.Timer}</td>
     </tr>`;
 
 
@@ -72,6 +73,10 @@ aPromise
  
 
 });
+
+
+
+
 
 
 
