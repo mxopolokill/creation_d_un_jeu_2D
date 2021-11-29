@@ -78,6 +78,7 @@ table th, td {
   position: absolute;
   top: 50%;
   left: 50%;
+  
   transform: translate(-50%, -50%);
   /* afficher l'icône au dessus du texte, dans une colonne centrée horizontalement */
   display: flex;
@@ -111,4 +112,8 @@ table th, td {
 }
 .btn{
   text-decoration: none;
+}
+
+table{
+  background: #fefefe67;
 }
