@@ -112,12 +112,23 @@ export function collision() {
       World.remove(world, boss);
     } 
     if (score == (countRowBrick* countColumnBrick) && false == bossAlive){
-      getScoreboard.push({
+      let data = {
         "pseudo": namePlayer01,
         "score": score,
         "Timer": sec,
-      });
-      localStorage.setItem("scoreboard", JSON.stringify(getScoreboard));
+      };
+      console.log(data);
+      fetch('http://127.0.0.1:8000/api/add_Scores?TOKEN=T2RE132201465140261546546548464', {
+        
+        method: "POST",
+        
+        body: JSON.stringify(data),
+        
+        headers: {"Content-type": "application/json",
+                   "Accept": "application/json"
+        }
+        
+        }).then(response => response.json())
 
       document.location.href = "gamewin.html";
 
